@@ -118,7 +118,7 @@ require([
                 value: "1",
                 symbol: {
                     type: "picture-marker",
-                    url: "https://cdn-icons-png.flaticon.com/512/140/140149.png",
+                    url: "./image/symbol_church_1.png",
                     width: "15px"
                 }
             },

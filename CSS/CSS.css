@@ -1,8 +1,28 @@
 html,
-body,
-#viewDiv {
+body
+{
     height: 100%;
     width: 100%;
     margin: 0;
+    padding: 0;
+}
+
+#bara{
+    height: 5%;
+    width: 100%;
+    margin: 0%;
+    background-color: #c01b1b;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    
+}
+
+
+#viewDiv {
+    height: 95%;
+    width: 100%;
+    margin: 0%;
     padding: 0;
 }
