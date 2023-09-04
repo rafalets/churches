@@ -128,7 +128,7 @@ require([
                 value: "2",
                 symbol: {
                     type: "picture-marker", 
-                    url: "/image/symbol_church_2.png",
+                    url: "../image/symbol_church_2.png",
                     width: "15px"
                 }
             },
