@@ -186,7 +186,7 @@ require([
       
 
       var expand_editor = new Expand({
-        expandIconClass: "esri-icon-table",
+        expandIconClass: "esri-icon-edit",
         view: view,
         content: editor
       });
