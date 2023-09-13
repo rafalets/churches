@@ -8,8 +8,10 @@ require([
     "esri/widgets/BasemapGallery", // Το BasemapGallery εμφανίζει διαφορετικά υπόβαθρα χαρτών ώστε αν χρειαστεί να μπορεί ν αλλάξει το υπόβαθρο του προκαθορισμένου χάρτη απο το Map
     "esri/widgets/Legend", // Με το Legend εμφανίζεται ένα υπόμνημα
     "esri/renderers/UniqueValueRenderer", // Με το UniqueValueRenderer μπορούμε να έχουμε ένα δυναμικό υπόμνημα βάσει του service που τραβάμε, και μπορεί να δημιουργεί περισσότερα από ένα σύμβολα
-    "esri/widgets/Editor"
-], function (Map, MapView, FeatureLayer, PopupTemplate, Search, BasemapGallery, Legend, UniqueValueRenderer, Editor) {
+    "esri/widgets/Editor",
+    "esri/widgets/LayerList",
+    "esri/widgets/Expand"
+], function (Map, MapView, FeatureLayer, PopupTemplate, Search, BasemapGallery, Legend, UniqueValueRenderer, Editor, LayerList, Expand) {
 
     // Δημιουργώ μια μεταβλητή "myMap" και της ορίζω ένα basemap όποιο θέλω
     var myMap = new Map({
@@ -54,6 +56,15 @@ require([
         view: view
     });
 
+
+    var expand_search = new Expand({
+        expandIconClass: "esri-icon-search",
+        view: view,
+        content: searchWidget
+      });
+      view.ui.add(expand_search, "top-left");
+
+/*
     // Για να φανεί το εικονίδιο της αναζήτησης, πρέπει να του αρίσω κάποια θέση
     // Με το view.ui.add προσθέτω την μεταβλητή της αναζήτησης "searchWidget" στον χάρτη
     // Με το position: "top-left" ορίζω η αναζήτηση να είναι πάνω αριστερά στον χάρτη
@@ -62,7 +73,7 @@ require([
         position: "top-left",
         index: 2
     });
-
+*/
 
     // Δημιουργώ μια μεταβλητή "basemapGallery" η οποία θα έχει μια σειρά από διαορετικά υπόβαθρα χαρτών σε περίπτωση που θέλω ν αλλάξω το προκαθορισμένο της μεταβλητής "myMap"
     // Με το view: view ορίζω ότι η αναζήτηση θέλω να φαίνεται στον χάρτη της μεταβλητής "view"
@@ -70,13 +81,21 @@ require([
         view: view
     });
 
+    var expand_basemap = new Expand({
+        expandIconClass: "esri-icon-basemap",
+        view: view,
+        content: basemapGallery
+      });
+      view.ui.add(expand_basemap, "top-left");
+
+/*
     // Για να φανεί η καρτέλα των υποβάθρων, πρέπει να της αρίσω κάποια θέση
     // Με το view.ui.add προσθέτω την μεταβλητή των υποβάθρων "basemapGallery" στον χάρτη
     // Με το position: "top-right" ορίζω η αναζήτηση να είναι πάνω δεξιά στον χάρτη
     view.ui.add(basemapGallery, {
         position: "top-right"
     });
-
+*/
 
     // Δημιουργώ μια μεταβλητή "legend" η οποία τραβάει και εμφανίζει ένα υπόμνημα από το legend της esri
     // Με το view: view ορίζω ότι το υπόμνημα θέλω να φαίνεται στον χάρτη της μεταβλητής "view"
@@ -84,13 +103,24 @@ require([
         view: view
     });
 
+
+    var expand_legend = new Expand({
+        expandIconClass: "esri-icon-legend",
+        view: view,
+        content: legend
+      });
+      view.ui.add(expand_legend, "top-left");
+
     // Για να φανεί το υπόμνημα, πρέπει να του αρίσω κάποια θέση
     // Με το view.ui.add προσθέτω την μεταβλητή του υπομνήματος "legend" στον χάρτη
     // Με το position: "bottom-right" ορίζω το υπόμνημα να είναι κάτω δεξιά στον χάρτη
+
+
+/*    
     view.ui.add(legend, {
         position: "bottom-right"
     });
-
+*/
 
 
     // Δημιουργώ μια μεταβλητή "layer_renderer" η οποία θα κουβαλάει ένα δυναμικό υπόμνημα βάσει του service που χρησιμοποιούμε
@@ -154,6 +184,26 @@ require([
         view: view
       });
       
+
+      var expand_editor = new Expand({
+        expandIconClass: "esri-icon-table",
+        view: view,
+        content: editor
+      });
+      view.ui.add(expand_editor, "top-left");
+
+
+      /*
       view.ui.add(editor, "bottom-left");
+      */
+
+
+
+
+
+
+
+
+
 
 });
