@@ -37,13 +37,52 @@ require([
     // Με το ouyFields καλώ τα πεδία του layer, και με το "*" καλώ όλα τα πεδία
     // Ορίζω την μεταβλητή "popupTemplate" η οποία θα μπορεί να δημιουργήσει ένα popup για το συγκεκριμένο layer
     // Με τα title και content ορίζω τον τίτλο και τα περιεχόμενα του popup
+
+
+
+
+
     var layer = new FeatureLayer(serviceUrl, {
         outFields: "*",
         popupTemplate: new PopupTemplate({
             title: "{name}",
-            content: "<b>Τύπος:</b>  {church_type} <b></br>  Γιορτάζει:</b> {cel_date}"
+           content: [
+            
+           { type: "text",
+            text: "<b>Τύπος:</b>  {church_type} <b></br>  Γιορτάζει:</b> {cel_date} </br> " 
+           },
+
+/*
+          { type: "media", // MediaContentElement
+                mediaInfos: [
+                  {
+                    title: "<b>Count by type</b>",
+                    type: "image",
+                    caption: "tree species",
+                    value: {
+                      sourceURL:  "https://services6.arcgis.com/f36cxNuTmfCJN313/ArcGIS/rest/services/churches/FeatureServer/0/11/attachments/2?w=400"}
+                  },
+                  {
+                    title: "<b>Mexican Fan Palm</b>",
+                    type: "image",
+                    caption: "tree species",
+                    value: {
+                      sourceURL:  "https://services6.arcgis.com/f36cxNuTmfCJN313/ArcGIS/rest/services/churches/FeatureServer/0/11/attachments/2?w=400"
+                    }
+                  }
+                ]
+              },
+
+*/
+
+
+           {type: "attachments"}
+ 
+        ]
+
         })
     });
+
 
     // Για να φανούν τα χαρακτηριστικά των πεδίων του layer, πρέπει να το καλέσω
     // Με το myMap.layers.add(layer), ορίζω πως στην μεταβλητή "myMap", δλδ στον χάρτη μου, θα προσθέσω ένα layer και θα το καλέσω. Στο συγκεκριμένο καλώ το layer με όνομα layer
@@ -148,7 +187,8 @@ require([
                 value: "1",
                 symbol: {
                     type: "picture-marker",
-                    url: "./image/symbol_church_1.png",
+                   // url: "./image/symbol_church_1.png",
+                    url: "https://st2.depositphotos.com/5266903/12150/i/450/depositphotos_121504814-stock-photo-church-flat-glyph-icon.jpg",
                     width: "15px"
                 }
             },
@@ -158,7 +198,8 @@ require([
                 value: "2",
                 symbol: {
                     type: "picture-marker", 
-                    url: "./image/symbol_church_2.png",
+                  //  url: "./image/symbol_church_2.png",
+                  url: "https://st2.depositphotos.com/5266903/12150/i/450/depositphotos_121504814-stock-photo-church-flat-glyph-icon.jpg",
                     width: "15px"
                 }
             },
@@ -168,7 +209,8 @@ require([
                 value: "3",
                 symbol: {
                     type: "picture-marker", 
-                    url: "./image/symbol_church_3.png",
+                   // url: "./image/symbol_church_3.png",
+                   url: "https://st2.depositphotos.com/5266903/12150/i/450/depositphotos_121504814-stock-photo-church-flat-glyph-icon.jpg",
                     width: "15px"
                 }
             },],
@@ -177,6 +219,7 @@ require([
 
     // Με το layer.renderer ορίζω ότι θέλω να φαίνεται το υπόμνημα του layer στον χάρτη, βάσει της μεταβλητής "layer_renderer"
     layer.renderer = layer_renderer
+    layer_image.renderer = layer_renderer
 
 
 
