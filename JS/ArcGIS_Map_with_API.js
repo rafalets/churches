@@ -27,7 +27,14 @@ require([
         container: "viewDiv", // !!!Μεγάλη προσοχή στο style που δόθηκε για το div
         map: myMap,
         zoom: 11,
-        center: [23.356161, 40.818535]
+        center: [23.356161, 40.818535],
+        popup: {
+            dockEnabled: true,
+              dockOptions: {
+              buttonEnabled: true,
+              breakpoint: false
+            } 
+          } 
     });
 
     // Ορίζω μια μεταβλητή "serviceUrl" η οποία παίρνει ως "τιμή" το layer και τον service που θέλω να εκμεταλλευτώ. Στη συγκεκριμένη περίπτωση παίρνω το layer 0.
@@ -48,35 +55,31 @@ require([
             title: "{name}",
            content: [
             
-           { type: "text",
-            text: "<b>Τύπος:</b>  {church_type} <b></br>  Γιορτάζει:</b> {cel_date} </br> " 
-           },
+             {type: "fields",
+                    fieldInfos: [
+                        {
+                          fieldName: "church_type",
+                          visible: true,
+                          label: "Τύπος:" ,
+                          format: {
+                            places: 0,
+                            digitSeparator: true
+                          }
+                        },
+                        {
+                          fieldName: "cel_date",
+                          visible: true,
+                          label: "Γιορτάζει:",
+                          format: {
+                            places: 0,
+                            digitSeparator: true
+                          },
+                        },
 
-/*
-          { type: "media", // MediaContentElement
-                mediaInfos: [
-                  {
-                    title: "<b>Count by type</b>",
-                    type: "image",
-                    caption: "tree species",
-                    value: {
-                      sourceURL:  "https://services6.arcgis.com/f36cxNuTmfCJN313/ArcGIS/rest/services/churches/FeatureServer/0/11/attachments/2?w=400"}
-                  },
-                  {
-                    title: "<b>Mexican Fan Palm</b>",
-                    type: "image",
-                    caption: "tree species",
-                    value: {
-                      sourceURL:  "https://services6.arcgis.com/f36cxNuTmfCJN313/ArcGIS/rest/services/churches/FeatureServer/0/11/attachments/2?w=400"
-                    }
-                  }
-                ]
-              },
+                      ]
+                    },
 
-*/
-
-
-           {type: "attachments"}
+           {type: "attachments" }
  
         ]
 
@@ -187,8 +190,8 @@ require([
                 value: "1",
                 symbol: {
                     type: "picture-marker",
-                   // url: "./image/symbol_church_1.png",
-                    url: "https://st2.depositphotos.com/5266903/12150/i/450/depositphotos_121504814-stock-photo-church-flat-glyph-icon.jpg",
+                    url: "./image/symbol_church_1.png",
+                    //url: "https://st2.depositphotos.com/5266903/12150/i/450/depositphotos_121504814-stock-photo-church-flat-glyph-icon.jpg",
                     width: "15px"
                 }
             },
@@ -198,8 +201,8 @@ require([
                 value: "2",
                 symbol: {
                     type: "picture-marker", 
-                  //  url: "./image/symbol_church_2.png",
-                  url: "https://st2.depositphotos.com/5266903/12150/i/450/depositphotos_121504814-stock-photo-church-flat-glyph-icon.jpg",
+                   url: "./image/symbol_church_2.png",
+                 // url: "https://st2.depositphotos.com/5266903/12150/i/450/depositphotos_121504814-stock-photo-church-flat-glyph-icon.jpg",
                     width: "15px"
                 }
             },
@@ -209,8 +212,8 @@ require([
                 value: "3",
                 symbol: {
                     type: "picture-marker", 
-                   // url: "./image/symbol_church_3.png",
-                   url: "https://st2.depositphotos.com/5266903/12150/i/450/depositphotos_121504814-stock-photo-church-flat-glyph-icon.jpg",
+                    url: "./image/symbol_church_3.png",
+                  // url: "https://st2.depositphotos.com/5266903/12150/i/450/depositphotos_121504814-stock-photo-church-flat-glyph-icon.jpg",
                     width: "15px"
                 }
             },],
