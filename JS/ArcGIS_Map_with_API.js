@@ -28,13 +28,13 @@ require([
         map: myMap,
         zoom: 11,
         center: [23.356161, 40.818535],
-        popup: {
-            dockEnabled: true,
-              dockOptions: {
-              buttonEnabled: true,
-              breakpoint: false
-            } 
-          } 
+     //   popup: {
+     //       dockEnabled: true,
+     //         dockOptions: {
+     //         buttonEnabled: true,
+     //         breakpoint: false
+     //       } 
+     //     } 
     });
 
     // Ορίζω μια μεταβλητή "serviceUrl" η οποία παίρνει ως "τιμή" το layer και τον service που θέλω να εκμεταλλευτώ. Στη συγκεκριμένη περίπτωση παίρνω το layer 0.
@@ -191,7 +191,7 @@ require([
                 symbol: {
                     type: "picture-marker",
                     url: "./image/symbol_church_1.png",
-                    //url: "https://st2.depositphotos.com/5266903/12150/i/450/depositphotos_121504814-stock-photo-church-flat-glyph-icon.jpg",
+                   // url: "https://st2.depositphotos.com/5266903/12150/i/450/depositphotos_121504814-stock-photo-church-flat-glyph-icon.jpg",
                     width: "15px"
                 }
             },
